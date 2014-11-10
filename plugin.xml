@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.hochkraft.plugins.privilegedcall" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Whatsapp</name>
+    <description>A plugin for sending whatsapp messages</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,plugins,whatsapp</keywords>    
+
+    <js-module name="caller" src="www/whats.js">
+        <clobbers target="window.whats" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="Whats">
+                <param name="android-package" value="com.hochkraft.plugins.whatsapp.Whats" />
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+                    </config-file>        
+        
+        <source-file src="src/android/Whats.java" 
+                     target-dir="src/com/hochkraft/plugins/whatsapp" />
+    </platform>
+
+    
+</plugin>
