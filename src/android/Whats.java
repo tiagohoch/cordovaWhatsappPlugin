@@ -30,7 +30,7 @@ public static final String ACTION_DIAL_NUMBER = "dialNumber";
 
           
 
-            return this.sendMessage(phoneNumber,message callbackContext);
+            return this.sendMessage(phoneNumber,message, callbackContext);
 
             //return true;
         }
