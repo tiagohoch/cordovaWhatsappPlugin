@@ -39,8 +39,8 @@ public static final String ACTION_DIAL_NUMBER = "dialNumber";
     }
 
     private boolean sendMessage(String phoneNumber,String message, final CallbackContext callbackContext) throws JSONException {
-        boolean isWhatsappInstalled = whatsappInstalledOrNot("com.whatsapp");
-        if (isWhatsappInstalled) {
+       // boolean isWhatsappInstalled = whatsappInstalledOrNot("com.whatsapp");
+        //if (isWhatsappInstalled) {
             Uri uri = Uri.parse("smsto:" + "55"+phoneNumber);
             Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
             sendIntent.putExtra(Intent.EXTRA_TEXT, message);
@@ -48,26 +48,16 @@ public static final String ACTION_DIAL_NUMBER = "dialNumber";
             sendIntent.setPackage("com.whatsapp");
             startActivity(sendIntent);
             return true;
-        } else {
+       // } else {
 //            Toast.makeText(this, "WhatsApp not Installed",
 //                    Toast.LENGTH_SHORT).show();
 //            Uri uri = Uri.parse("market://details?id=com.whatsapp");
 //            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
 //            startActivity(goToMarket);
-            return false;
-        }
+        //    return false;
+       // }
 
     }
-private boolean whatsappInstalledOrNot(String uri) {
-    PackageManager pm = getPackageManager();
-    boolean app_installed = false;
-    try {
-        pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-        app_installed = true;
-    } catch (PackageManager.NameNotFoundException e) {
-        app_installed = false;
-    }
-    return app_installed;
-}
+
    
 }
