@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import 	android.content.Context;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -46,7 +47,8 @@ public static final String ACTION_DIAL_NUMBER = "dialNumber";
             sendIntent.putExtra(Intent.EXTRA_TEXT, message);
             sendIntent.setType("text/plain");
             sendIntent.setPackage("com.whatsapp");
-            startActivity(sendIntent);
+        Context context =  cordova.getActivity().getApplicationContext();
+            context.startActivity(sendIntent);
             return true;
        // } else {
 //            Toast.makeText(this, "WhatsApp not Installed",
